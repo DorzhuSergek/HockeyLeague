@@ -1,0 +1,45 @@
+﻿<Page x:Class="HockeyLeague.AddCanselGame"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HockeyLeague"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddCanselGame">
+
+    <Grid Background="white">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="13*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Игра" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Причина отмена игры" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="День игры" Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ComboBox Name="nameGame"  Grid.Column="1" Grid.Row="0" Width="250" Height="30" SelectedItem="{Binding Path=Game}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{} {0} vs {1}">
+                                <Binding Path="Team.Name"/>
+                                <Binding Path="TeamTwo.Name"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBox Grid.Row="1" Grid.Column="2" Height="30" Width="250" Text="{Binding Path=Cause}"/>
+        <DatePicker SelectedDate="{Binding NewDataGame}" Grid.Column="1" Grid.Row="2" Width="250" Height="30"/>
+        <Button Content="Сохранить" Grid.Column="1" Grid.Row="7" Name="BtnSave" Width="400" Height="50" Click="BtnSave_Click"/>
+    </Grid>
+</Page>

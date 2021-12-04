@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="366cdaa4366e4a299eb9d78006a7a444" Name="Diagram1">
+        <EntityTypeShape EntityType="HockeyLeagueModel.Cause_cansel_game" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HockeyLeagueModel.Game" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HockeyLeagueModel.Game_Account_Information" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HockeyLeagueModel.Player" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HockeyLeagueModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HockeyLeagueModel.Team" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="HockeyLeagueModel.FK_Cause_cansel_game_Game" ManuallyRouted="false" />
+        <AssociationConnector Association="HockeyLeagueModel.FK_Game_Account_Information_Game" ManuallyRouted="false" />
+        <AssociationConnector Association="HockeyLeagueModel.FK_Game_Account_Information_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="HockeyLeagueModel.FK_Player_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="HockeyLeagueModel.FK_Game_Team" />
+        <AssociationConnector Association="HockeyLeagueModel.FK_Game_Team1" />
+        <EntityTypeShape EntityType="HockeyLeagueModel.TeamTwo" Width="1.5" PointX="7.625" PointY="3.625" />
+        <AssociationConnector Association="HockeyLeagueModel.FK_Game_TeamTwo" />
+        <EntityTypeShape EntityType="HockeyLeagueModel.Roles" Width="1.5" PointX="7.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,49 @@
+﻿<Page x:Class="HockeyLeague.GameFragment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HockeyLeague"
+      mc:Ignorable="d" 
+      d:DesignHeight="349.688" d:DesignWidth="800"
+      Title="GameFragment" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <DataGrid x:Name="DGridGame"  AutoGenerateColumns="False" IsReadOnly="True" RowBackground="DarkGray" AlternatingRowBackground="White" Width="auto" Height="auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Команда Хозяев" Binding="{Binding Team.Name}" Width="auto"/>
+                    <DataGridTextColumn Header="Команда Гостей" Binding="{Binding TeamTwo.Name}" Width="auto"/>
+                    <DataGridTextColumn Header="Счет Хозяев" Binding="{Binding HostTeamScore}" Width="auto"/>
+                    <DataGridTextColumn Header="Счет Гостей" Binding="{Binding GuestTeamScore}" Width="auto"/>
+                    <DataGridTextColumn Header="Дата Игры" Binding="{Binding GameData}" Width="auto"/>
+                    <DataGridTextColumn Header="Город" Binding="{Binding City}" Width="auto"/>
+                    <DataGridCheckBoxColumn Header="Матч Статус" Binding="{Binding Match_status}" Width="auto"/>
+                    <DataGridTemplateColumn Width="35">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="Resources\edit.png" MouseDown="BtnEdit_Click" Width="30" Height="30" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="addGame"  Content="Добавить" Click="Button_Click" VerticalAlignment="Bottom" Height="25"  Width="200"/>
+                <Button x:Name="delGame" Content="Удалить" Click="Button_Click_1"  VerticalAlignment="Bottom" Height="25" Grid.Column="2"  Width="200"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>
