@@ -23,6 +23,8 @@ namespace HockeyLeague
         public MainWindow()
         {
             InitializeComponent();
+            AutoLogin auto = new AutoLogin();
+            auto.Close();
             Manager._frame = Frame;
             string role = Manager.Role;
             if (role == "User")

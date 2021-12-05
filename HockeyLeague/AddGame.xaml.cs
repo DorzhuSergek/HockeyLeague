@@ -24,41 +24,49 @@ namespace HockeyLeague
         private Game _currentGame = new Game();
         public AddGame(Game gameSelected)
         {
-           
+
 
             InitializeComponent();
             HostTeam.ItemsSource = HockeyLeagueEntities.GetContext().Team.ToList();
             GuestTeam.ItemsSource = HockeyLeagueEntities.GetContext().TeamTwo.ToList();
-       
+
 
 
             if (gameSelected != null)
                 _currentGame = gameSelected;
 
             DataContext = _currentGame;
-        
+
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (_currentGame.id == 0)
+            if (HostTeam.SelectedItem == "" && GuestTeam.SelectedItem == "" && countHost.Text == "" && countGuest.Text == "" && DateGame.SelectedDate == null && city.Text == "" && status.IsChecked == null)
             {
-                HockeyLeagueEntities.GetContext().Game.Add(_currentGame);
+                if (_currentGame.id == 0)
+                {
+                    HockeyLeagueEntities.GetContext().Game.Add(_currentGame);
+                }
+                try
+                {
+                    HockeyLeagueEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Информация сохранена");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
             }
-            try
+            else
             {
-                HockeyLeagueEntities.GetContext().SaveChanges();
-                MessageBox.Show("Информация сохранена");
+                MessageBox.Show("Заполните поля", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
+
         }
 
         private void HostTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)

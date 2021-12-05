@@ -30,8 +30,6 @@ namespace HockeyLeague
                 addInfo.IsEnabled = false;
                 delInfo.IsEnabled = false;
             }
-
-
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -42,7 +40,6 @@ namespace HockeyLeague
                 DGridInfo.ItemsSource = HockeyLeagueEntities.GetContext().Game_Account_Information.ToList();
             }
         }
-
         private void BtnEdit_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Manager._frame.Navigate(new AddInfo((sender as Image).DataContext as Game_Account_Information));
@@ -55,7 +52,22 @@ namespace HockeyLeague
 
         private void delInfo_Click(object sender, RoutedEventArgs e)
         {
+            var infoforRemoving = DGridInfo.SelectedItems.Cast<Game_Account_Information>().ToList();
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {infoforRemoving.Count()} элементов?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    HockeyLeagueEntities.GetContext().Game_Account_Information.RemoveRange(infoforRemoving);
+                    HockeyLeagueEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены");
 
+                    DGridInfo.ItemsSource = HockeyLeagueEntities.GetContext().Player.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
         }
     }
 }

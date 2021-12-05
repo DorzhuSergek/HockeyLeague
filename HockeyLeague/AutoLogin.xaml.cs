@@ -55,7 +55,7 @@ namespace HockeyLeague
                     }
                     mainWindow = new MainWindow();
                     mainWindow.Show();
-                    this.Close();
+                    Close();
                     return;
                 }
             }

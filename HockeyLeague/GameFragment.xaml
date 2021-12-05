@@ -8,10 +8,10 @@
       d:DesignHeight="349.688" d:DesignWidth="800"
       Title="GameFragment" IsVisibleChanged="Page_IsVisibleChanged">
 
-    <Grid>
+    <Grid Background="white">
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"/>
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <DataGrid x:Name="DGridGame"  AutoGenerateColumns="False" IsReadOnly="True" RowBackground="DarkGray" AlternatingRowBackground="White" Width="auto" Height="auto">
@@ -40,8 +40,8 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="addGame"  Content="Добавить" Click="Button_Click" VerticalAlignment="Bottom" Height="25"  Width="200"/>
-                <Button x:Name="delGame" Content="Удалить" Click="Button_Click_1"  VerticalAlignment="Bottom" Height="25" Grid.Column="2"  Width="200"/>
+                <Button x:Name="addGame"  Content="Добавить" Click="Button_Click"  Height="25"  Width="200" VerticalAlignment="Top"/>
+                <Button x:Name="delGame" Content="Удалить" Click="Button_Click_1"  VerticalAlignment="Top" Height="25" Grid.Column="2"  Width="200"/>
             </Grid>
         </Grid>
 

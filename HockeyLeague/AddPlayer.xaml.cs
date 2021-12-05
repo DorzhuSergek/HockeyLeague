@@ -30,22 +30,34 @@ namespace HockeyLeague
                 _currentPlayer = selectedTeam;
 
             DataContext = _currentPlayer;
+            List<string> position = new List<string>();
+            position.Add("Вратарь");
+            position.Add("Защитник");
+            position.Add("Нападающий");
+            cmbPosition.ItemsSource = position;
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (_currentPlayer.id == 0)
+            if (surname.Text == "" && name.Text == "" && ComboTeam.SelectedItem == "" && cmbPosition.SelectedItem == "" && numberPlayer.Text == "")
             {
-                HockeyLeagueEntities.GetContext().Player.Add(_currentPlayer);
+                if (_currentPlayer.id == 0)
+                {
+                    HockeyLeagueEntities.GetContext().Player.Add(_currentPlayer);
+                }
+                try
+                {
+                    HockeyLeagueEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Информация сохранена");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
             }
-            try
+            else
             {
-                HockeyLeagueEntities.GetContext().SaveChanges();
-                MessageBox.Show("Информация сохранена");
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show("Заполните поля", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -55,6 +67,11 @@ namespace HockeyLeague
             {
                 e.Handled = true;
             }
+        }
+
+        private void TextBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

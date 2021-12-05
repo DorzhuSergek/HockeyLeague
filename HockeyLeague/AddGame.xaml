@@ -33,11 +33,11 @@
         <TextBlock Text="Статус матча" Grid.Row="6"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <ComboBox Name="HostTeam" SelectedItem="{Binding Team}"  Grid.Column="1" Grid.Row="0" DisplayMemberPath="Name"  Width="250" Height="30"/>
         <ComboBox Name="GuestTeam" SelectedItem="{Binding TeamTwo}" Grid.Column="1" Grid.Row="1" DisplayMemberPath="Name" Width="250" Height="30" />
-        <TextBox Text="{Binding HostTeamScore}" Grid.Column="1" Grid.Row="2" Width="250" Height="30" PreviewTextInput="TextBox_PreviewTextInput" />
-        <TextBox Text="{Binding GuestTeamScore}" Grid.Column="1" Grid.Row="3" Width="250" Height="30" PreviewTextInput="TextBox_PreviewTextInput"/>
-        <DatePicker SelectedDate="{Binding GameData}" Grid.Column="1" Grid.Row="4" Width="250" Height="30"/>
-        <TextBox Text="{Binding City}" Grid.Column="1" Grid.Row="5" Width="250" Height="30"/>
-        <CheckBox IsChecked="{Binding Match_status}" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox Name="countHost" Text="{Binding HostTeamScore}" Grid.Column="1" Grid.Row="2" Width="250" Height="30" PreviewTextInput="TextBox_PreviewTextInput" />
+        <TextBox Name="countGuest" Text="{Binding GuestTeamScore}" Grid.Column="1" Grid.Row="3" Width="250" Height="30" PreviewTextInput="TextBox_PreviewTextInput"/>
+        <DatePicker Name="DateGame" SelectedDate="{Binding GameData}" Grid.Column="1" Grid.Row="4" Width="250" Height="30"/>
+        <TextBox Name="city" Text="{Binding City}" Grid.Column="1" Grid.Row="5" Width="250" Height="30"/>
+        <CheckBox Name="status" IsChecked="{Binding Match_status}" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button Content="Сохранить" Grid.Column="1" Grid.Row="7" Name="BtnSave" Click="BtnSave_Click" Width="400" Height="50"/>
     </Grid>
 </Page>

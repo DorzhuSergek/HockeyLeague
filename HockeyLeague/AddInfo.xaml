@@ -40,8 +40,8 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <TextBox Grid.Row="1" Grid.Column="2" Width="250" Height="30" Text="{Binding Path=time}"/>
-        <TextBox Grid.Row="2" Grid.Column="3" Width="250" Height="30" Text="{Binding Path=Period}"/>
+        <TextBox Name="time" Grid.Row="1" Grid.Column="2" Width="250" Height="30" Text="{Binding Path=time}"/>
+        <TextBox Name="period" Grid.Row="2" Grid.Column="3" Width="250" Height="30" Text="{Binding Path=Period}"/>
         <ComboBox Name="cmbGame" Grid.Row="3" Grid.Column="3" Width="250" Height="30" SelectedItem="{Binding Path=Game}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>

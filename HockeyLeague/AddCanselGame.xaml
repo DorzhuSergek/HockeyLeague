@@ -38,8 +38,8 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <TextBox Grid.Row="1" Grid.Column="2" Height="30" Width="250" Text="{Binding Path=Cause}"/>
-        <DatePicker SelectedDate="{Binding NewDataGame}" Grid.Column="1" Grid.Row="2" Width="250" Height="30"/>
+        <TextBox Name="Cause" Grid.Row="1" Grid.Column="2" Height="30" Width="250" Text="{Binding Path=Cause}"/>
+        <DatePicker Name="Date" SelectedDate="{Binding NewDataGame}" Grid.Column="1" Grid.Row="2" Width="250" Height="30"/>
         <Button Content="Сохранить" Grid.Column="1" Grid.Row="7" Name="BtnSave" Width="400" Height="50" Click="BtnSave_Click"/>
     </Grid>
 </Page>
