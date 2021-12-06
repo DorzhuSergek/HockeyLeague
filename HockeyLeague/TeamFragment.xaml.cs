@@ -54,7 +54,7 @@ namespace HockeyLeague
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             var teamforRemoving = DGrid.SelectedItems.Cast<Team>().ToList();
-            if(MessageBox.Show($"Вы точно хотите удалить следующие {teamforRemoving.Count()} элементов?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {teamforRemoving.Count()} элементов?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
@@ -64,11 +64,16 @@ namespace HockeyLeague
 
                     DGrid.ItemsSource = HockeyLeagueEntities.GetContext().Team.ToList();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message.ToString());
                 }
             }
+        }
+
+        private void search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DGrid.ItemsSource = HockeyLeagueEntities.GetContext().Team.ToList().Where(x => x.Name.ToLower().Contains(search.Text.ToLower()));
         }
     }
 }

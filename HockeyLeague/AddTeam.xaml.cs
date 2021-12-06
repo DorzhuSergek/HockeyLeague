@@ -27,35 +27,27 @@ namespace HockeyLeague
 
             if (selectedTeam != null)
                 _currentTeam = selectedTeam;
-            
+
             DataContext = _currentTeam;
 
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (NameTeam.Text == "" && couchSurname.Text == "" && City.Text == "" && couchSurname.Text == "")
+            if (_currentTeam.id == 0)
             {
-                if (_currentTeam.id == 0)
-                {
-                    HockeyLeagueEntities.GetContext().Team.Add(_currentTeam);
-                }
-                try
-                {
-                    HockeyLeagueEntities.GetContext().SaveChanges();
-                    MessageBox.Show("Информация сохранена");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
+                HockeyLeagueEntities.GetContext().Team.Add(_currentTeam);
             }
-            else
+            try
             {
-                MessageBox.Show("Заполните поля", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+                HockeyLeagueEntities.GetContext().SaveChanges();
+                MessageBox.Show("Информация сохранена");
             }
-          
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            
         }
     }
 }

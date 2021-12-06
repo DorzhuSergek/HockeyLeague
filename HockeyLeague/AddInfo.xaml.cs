@@ -35,27 +35,19 @@ namespace HockeyLeague
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (cmbGame.SelectedItem == "" && cmbPlayer.SelectedItem == "" && time.Text == "" && period.Text=="")
+            if (_Info.ID == 0)
             {
-                if (_Info.ID == 0)
-                {
-                    HockeyLeagueEntities.GetContext().Game_Account_Information.Add(_Info);
-                }
-                try
-                {
-                    HockeyLeagueEntities.GetContext().SaveChanges();
-                    MessageBox.Show("Информация сохранена");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
+                HockeyLeagueEntities.GetContext().Game_Account_Information.Add(_Info);
             }
-            else
+            try
             {
-                MessageBox.Show("Заполните поля", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+                HockeyLeagueEntities.GetContext().SaveChanges();
+                MessageBox.Show("Информация сохранена");
             }
-           
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

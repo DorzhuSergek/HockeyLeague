@@ -41,27 +41,19 @@ namespace HockeyLeague
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (HostTeam.SelectedItem == "" && GuestTeam.SelectedItem == "" && countHost.Text == "" && countGuest.Text == "" && DateGame.SelectedDate == null && city.Text == "" && status.IsChecked == null)
+            if (_currentGame.id == 0)
             {
-                if (_currentGame.id == 0)
-                {
-                    HockeyLeagueEntities.GetContext().Game.Add(_currentGame);
-                }
-                try
-                {
-                    HockeyLeagueEntities.GetContext().SaveChanges();
-                    MessageBox.Show("Информация сохранена");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
+                HockeyLeagueEntities.GetContext().Game.Add(_currentGame);
             }
-            else
+            try
             {
-                MessageBox.Show("Заполните поля", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
+                HockeyLeagueEntities.GetContext().SaveChanges();
+                MessageBox.Show("Информация сохранена");
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         private void HostTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)

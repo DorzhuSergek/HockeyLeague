@@ -7,14 +7,14 @@
         <Style TargetType="Button">
             <Setter Property="Background" Value="#3a70c4"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Segoe Print"/>
+            <Setter Property="FontFamily" Value="MS Reference Sans Serif"/>
         </Style>
 
         <Style TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Segoe Print"/>
+            <Setter Property="FontFamily" Value="MS Reference Sans Serif"/>
         </Style>
         <Style TargetType="DataGridColumnHeader">
-            
+            <Setter Property="FontFamily" Value="MS Reference Sans Serif"/>
         </Style>
     </Application.Resources>
 </Application>
