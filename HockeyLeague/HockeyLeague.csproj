@@ -88,25 +88,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddCanselGame.xaml.cs">
+    <Compile Include="AddPage\AddCanselGame.xaml.cs">
       <DependentUpon>AddCanselGame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddGame.xaml.cs">
+    <Compile Include="AddPage\AddGame.xaml.cs">
       <DependentUpon>AddGame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddInfo.xaml.cs">
+    <Compile Include="AddPage\AddInfo.xaml.cs">
       <DependentUpon>AddInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddPlayer.xaml.cs">
+    <Compile Include="AddPage\AddPlayer.xaml.cs">
       <DependentUpon>AddPlayer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddTeam.xaml.cs">
+    <Compile Include="AddPage\AddTeam.xaml.cs">
       <DependentUpon>AddTeam.xaml</DependentUpon>
     </Compile>
     <Compile Include="AutoLogin.xaml.cs">
       <DependentUpon>AutoLogin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CanselGame.xaml.cs">
+    <Compile Include="PageWPF\CanselGame.xaml.cs">
       <DependentUpon>CanselGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cause_cansel_game.cs">
@@ -115,18 +115,15 @@
     <Compile Include="Game.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="GameFragment.xaml.cs">
+    <Compile Include="PageWPF\GameFragment.xaml.cs">
       <DependentUpon>GameFragment.xaml</DependentUpon>
     </Compile>
     <Compile Include="Game_Account_Information.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="HockeyLeagueEntities.cs" />
-    <Compile Include="InfoAboutGame.xaml.cs">
+    <Compile Include="PageWPF\InfoAboutGame.xaml.cs">
       <DependentUpon>InfoAboutGame.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="LogUser_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -150,7 +147,7 @@
     <Compile Include="Player.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="PlayerFragment.xaml.cs">
+    <Compile Include="PageWPF\PlayerFragment.xaml.cs">
       <DependentUpon>PlayerFragment.xaml</DependentUpon>
     </Compile>
     <Compile Include="Roles.cs">
@@ -168,29 +165,29 @@
     <Compile Include="Team.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="TeamFragment.xaml.cs">
+    <Compile Include="PageWPF\TeamFragment.xaml.cs">
       <DependentUpon>TeamFragment.xaml</DependentUpon>
     </Compile>
     <Compile Include="TeamTwo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Page Include="AddCanselGame.xaml">
+    <Page Include="AddPage\AddCanselGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddGame.xaml">
+    <Page Include="AddPage\AddGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddInfo.xaml">
+    <Page Include="AddPage\AddInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddPlayer.xaml">
+    <Page Include="AddPage\AddPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddTeam.xaml">
+    <Page Include="AddPage\AddTeam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,19 +195,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CanselGame.xaml">
+    <Page Include="PageWPF\CanselGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GameFragment.xaml">
+    <Page Include="PageWPF\GameFragment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="InfoAboutGame.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LoginWindow.xaml">
+    <Page Include="PageWPF\InfoAboutGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -226,11 +219,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PlayerFragment.xaml">
+    <Page Include="PageWPF\PlayerFragment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TeamFragment.xaml">
+    <Page Include="PageWPF\TeamFragment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

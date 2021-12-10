@@ -39,28 +39,27 @@ namespace HockeyLeague
 
         private void TeamClick(object sender, MouseButtonEventArgs e)
         {
-            Manager._frame.Navigate(new TeamFragment());
-
+            Manager._frame.Navigate(new PageWPF.TeamFragment());
         }
 
         private void PlayerClick(object sender, MouseButtonEventArgs e)
         {
-            Manager._frame.Navigate(new PlayerFragment());
+            Manager._frame.Navigate(new PageWPF.PlayerFragment());
         }
 
         private void GameClick(object sender, MouseButtonEventArgs e)
         {
-            Manager._frame.Navigate(new GameFragment());
+            Manager._frame.Navigate(new PageWPF.GameFragment());
         }
 
         private void InfoAboutGameClick(object sender, MouseButtonEventArgs e)
         {
-            Manager._frame.Navigate(new InfoAboutGame());
+            Manager._frame.Navigate(new PageWPF.InfoAboutGame());
         }
 
         private void canselGame_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Manager._frame.Navigate(new CanselGame());
+            Manager._frame.Navigate(new PageWPF.CanselGame());
         }
     }
 }

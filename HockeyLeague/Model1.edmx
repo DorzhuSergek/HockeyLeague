@@ -72,10 +72,10 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="City" Type="varchar" MaxLength="50" />
-          <Property Name="CoachName" Type="varchar" MaxLength="50" />
-          <Property Name="CoachSurname" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CoachName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CoachSurname" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TeamTwo">
           <Key>
@@ -300,10 +300,10 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CoachName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CoachSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CoachName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CoachSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Player" Relationship="Self.FK_Player_Team" FromRole="Team" ToRole="Player" />
           <NavigationProperty Name="Game" Relationship="HockeyLeagueModel.FK_Game_Team" FromRole="Team" ToRole="Game" />
           <NavigationProperty Name="Game1" Relationship="HockeyLeagueModel.FK_Game_Team1" FromRole="Team" ToRole="Game" />

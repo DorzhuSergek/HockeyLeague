@@ -1,4 +1,4 @@
-﻿<Page x:Class="HockeyLeague.PlayerFragment"
+﻿<Page x:Class="HockeyLeague.PageWPF.PlayerFragment"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -23,7 +23,7 @@
                 <DataGridTemplateColumn Width="35">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image x:Name="BtnEdit" MouseDown="BtnEdit_Click" Source="Resources/edit.png" Width="30" Height="30"></Image>
+                            <Image x:Name="BtnEdit" MouseDown="BtnEdit_Click" Source="/Resources/edit.png" Width="30" Height="30"></Image>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

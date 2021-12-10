@@ -1,4 +1,4 @@
-﻿<Page x:Class="HockeyLeague.CanselGame"
+﻿<Page x:Class="HockeyLeague.PageWPF.CanselGame"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -22,13 +22,14 @@
                             <Binding Path="Game.TeamTwo.Name"/>
                         </MultiBinding>
                     </DataGridTextColumn.Binding>
+
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Прична" Binding="{Binding Path=Cause}" Width="*"/>
                 <DataGridTextColumn Header="Дата игры" Binding="{Binding Path=NewDataGame}" Width="*"/>
                 <DataGridTemplateColumn Width="35">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image x:Name="BtnEdit" MouseDown="BtnEdit_Click" Source="Resources/edit.png" Width="30" Height="30"></Image>
+                            <Image Source="/Resources/edit.png" x:Name="BtnEdit" MouseDown="BtnEdit_Click" Width="30" Height="30"></Image>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
