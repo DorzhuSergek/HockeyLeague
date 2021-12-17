@@ -35,7 +35,6 @@ namespace HockeyLeague
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Game_Account_Information> Game_Account_Information { get; set; }
         public virtual Team Team { get; set; }
-        public virtual Team Team1 { get; set; }
         public virtual TeamTwo TeamTwo { get; set; }
     }
 }

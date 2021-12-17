@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         <TextBox Name="search" Width="170" Height="30" HorizontalAlignment="Left" Margin="21,10,0,10" TextChanged="search_TextChanged"/>
         <TextBlock  Width="170" Height="30" HorizontalAlignment="Left" Text="Поиск" Margin="207,10,0,10" VerticalAlignment="Center" FontSize="25"/>
-        <DataGrid x:Name="DGrid" AutoGenerateColumns="False" IsReadOnly="True" RowBackground="DarkGray" AlternatingRowBackground="White" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="auto" Height="442" Grid.Row="1" >
+        <DataGrid x:Name="DGrid" AutoGenerateColumns="False" IsReadOnly="True" RowBackground="DarkGray" AlternatingRowBackground="White" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="1" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название Команды" Binding="{Binding Name}" Width="*"/>
                 <DataGridTextColumn Header="Город" Binding="{Binding City}" Width="*"/>

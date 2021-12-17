@@ -35,7 +35,7 @@ namespace HockeyLeague
 
             private void BtnSave_Click(object sender, RoutedEventArgs e)
             {
-                if (nameGame.Name == "" && Cause.Text == "" && Date.SelectedDate == null)
+                if (nameGame.SelectedItem != null && !String.IsNullOrWhiteSpace(Cause.Text) && Date.SelectedDate != null)
                 {
                     if (_currentCanselGame.id == 0)
                     {

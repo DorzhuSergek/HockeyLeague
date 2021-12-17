@@ -31,10 +31,10 @@ namespace HockeyLeague
         public virtual DbSet<Game> Game { get; set; }
         public virtual DbSet<Game_Account_Information> Game_Account_Information { get; set; }
         public virtual DbSet<Player> Player { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Team> Team { get; set; }
         public virtual DbSet<TeamTwo> TeamTwo { get; set; }
-        public virtual DbSet<Roles> Roles { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

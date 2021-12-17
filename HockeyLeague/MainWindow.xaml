@@ -22,9 +22,8 @@
                     <ColumnDefinition />
                     <ColumnDefinition Width="20*"/>
                 </Grid.ColumnDefinitions>
-                <Image Source="Resources/icons8-menu-52.png" Grid.Column="0" ></Image>
                 <StackPanel Grid.Column="2">
-                    <TextBlock  VerticalAlignment="Center" FontSize="24" Padding="15" Foreground="White" FontFamily="Segoe Print">Хоккейный турнир</TextBlock>
+                    <TextBlock  VerticalAlignment="Center" FontSize="24" Padding="15" Foreground="White" FontFamily="Segoe Print"><Run Text="Хоккейный турнир"/></TextBlock>
                 </StackPanel>
             </Grid>
 
@@ -42,13 +41,13 @@
                         <ColumnDefinition />
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
-                    <Image Source="Resources/avata_player.png"></Image>
+                    <Image Source="Resources/avatar_icon.png"/>
                     <TextBlock Name="txtRole" Grid.Column="1" VerticalAlignment="Center" Foreground="White" ></TextBlock>
                 </Grid>
                 <Grid Grid.Row="1" MouseDown="TeamClick">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="91" />
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Image Source="Resources/team.png"></Image>
                     <TextBlock Name="txtTeam" Grid.Column="1" VerticalAlignment="Center" Foreground="White">Команды</TextBlock>
@@ -87,7 +86,7 @@
                 </Grid>
             </Grid>
             <StackPanel Grid.Column="1" Grid.Row="2">
-                <Frame x:Name="Frame" NavigationUIVisibility="Hidden" Height="473">
+                <Frame x:Name="Frame" NavigationUIVisibility="Hidden" Height="473" Navigated="Frame_Navigated">
                     <Frame.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>

@@ -17,9 +17,8 @@ namespace HockeyLeague
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Team()
         {
-            this.Player = new HashSet<Player>();
             this.Game = new HashSet<Game>();
-            this.Game1 = new HashSet<Game>();
+            this.Player = new HashSet<Player>();
         }
     
         public int id { get; set; }
@@ -29,10 +28,8 @@ namespace HockeyLeague
         public string CoachSurname { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Player> Player { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Game> Game { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Game> Game1 { get; set; }
+        public virtual ICollection<Player> Player { get; set; }
     }
 }

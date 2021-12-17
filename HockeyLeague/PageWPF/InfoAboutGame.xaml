@@ -14,7 +14,7 @@
             <RowDefinition Height="26*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.RowSpan="2">
-            <DataGrid x:Name="DGridInfo" AutoGenerateColumns="False" IsReadOnly="True" RowBackground="DarkGray" AlternatingRowBackground="White" Width="auto" Height="auto" >
+            <DataGrid x:Name="DGridInfo" AutoGenerateColumns="False" IsReadOnly="True" RowBackground="DarkGray" AlternatingRowBackground="White">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Игрок" Width="auto">
                         <DataGridTextColumn.Binding>

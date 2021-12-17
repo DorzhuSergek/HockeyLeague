@@ -14,7 +14,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <DataGrid x:Name="DGridGame"  AutoGenerateColumns="False" IsReadOnly="True" RowBackground="DarkGray" AlternatingRowBackground="White" Width="auto" Height="auto">
+            <DataGrid x:Name="DGridGame"  AutoGenerateColumns="False" IsReadOnly="True" RowBackground="DarkGray" AlternatingRowBackground="White" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Команда Хозяев" Binding="{Binding Team.Name}" Width="auto"/>
                     <DataGridTextColumn Header="Команда Гостей" Binding="{Binding TeamTwo.Name}" Width="auto"/>

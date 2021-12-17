@@ -17,19 +17,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="119*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="НазваниеКоманды" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBlock Text="Город" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBlock Text="Имя Тренера" Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBlock Text="Фамилия Тренера" Grid.Row="3"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Название Команды" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="14" Margin="4,28,0,28" Width="120"/>
+        <TextBlock Text="Город" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="14" Margin="40,28,48,28" Width="36"/>
+        <TextBlock Text="Имя Тренера" Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="14" Margin="18,28,26,28" Width="80"/>
+        <TextBlock Text="Фамилия Тренера" Grid.Row="3"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="14" Margin="2,28,10,28" Width="112"/>
 
-        <TextBox Name="NameTeam" Text="{Binding Name}" Grid.Column="1" Grid.Row="0" Width="300" Height="30"/>
-        <TextBox Name="City" Text="{Binding City}" Grid.Column="1" Grid.Row="1" Width="300" Height="30"/>
-        <TextBox Name="couchName" Text="{Binding CoachName}" Grid.Column="1" Grid.Row="2" Width="300" Height="30"/>
-        <TextBox Name="couchSurname" Text="{Binding CoachSurname}" Grid.Column="1" Grid.Row="3" Width="300" Height="30"/>
-        <Button Content="Сохранить" Grid.Column="1" Grid.Row="5" Margin="122,10,135,20" Name="BtnSave" Click="BtnSave_Click"/>
+        <TextBox Name="NameTeam" Text="{Binding Name}" Grid.Column="1" Grid.Row="0" Margin="93,20,92,20"/>
+        <TextBox Name="City" Text="{Binding City}" Grid.Column="1" Grid.Row="1" Margin="93,20,92,20"/>
+        <TextBox Name="couchName" Text="{Binding CoachName}" Grid.Column="1" Grid.Row="2" Margin="93,20,92,20"/>
+        <TextBox Name="couchSurname" Text="{Binding CoachSurname}" Grid.Column="1" Grid.Row="3" Margin="93,20,92,20"/>
+        <Button Content="Сохранить" Grid.Column="1" Grid.Row="4" Margin="122,10,135,20" Name="BtnSave" Click="BtnSave_Click"/>
     </Grid>
 </Page>

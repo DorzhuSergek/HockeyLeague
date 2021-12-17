@@ -61,5 +61,10 @@ namespace HockeyLeague
         {
             Manager._frame.Navigate(new PageWPF.CanselGame());
         }
+
+        private void Frame_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }

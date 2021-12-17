@@ -72,10 +72,10 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CoachName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CoachSurname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="CoachName" Type="varchar" MaxLength="50" />
+          <Property Name="CoachSurname" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TeamTwo">
           <Key>
@@ -232,153 +232,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HockeyLeagueModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Cause_cansel_game">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GameId" Type="Int32" />
-          <Property Name="Cause" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="NewDataGame" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Game" Relationship="Self.FK_Cause_cansel_game_Game" FromRole="Cause_cansel_game" ToRole="Game" />
-        </EntityType>
-        <EntityType Name="Game">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="HostTeam" Type="Int32" />
-          <Property Name="GuestTeam" Type="Int32" />
-          <Property Name="HostTeamScore" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="GuestTeamScore" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="GameData" Type="DateTime" Precision="3" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Match_status" Type="Boolean" />
-          <NavigationProperty Name="Cause_cansel_game" Relationship="Self.FK_Cause_cansel_game_Game" FromRole="Game" ToRole="Cause_cansel_game" />
-          <NavigationProperty Name="Game_Account_Information" Relationship="Self.FK_Game_Account_Information_Game" FromRole="Game" ToRole="Game_Account_Information" />
-          <NavigationProperty Name="Team" Relationship="HockeyLeagueModel.FK_Game_Team" FromRole="Game" ToRole="Team" />
-          <NavigationProperty Name="Team1" Relationship="HockeyLeagueModel.FK_Game_Team1" FromRole="Game" ToRole="Team" />
-          <NavigationProperty Name="TeamTwo" Relationship="HockeyLeagueModel.FK_Game_TeamTwo" FromRole="Game" ToRole="TeamTwo" />
-        </EntityType>
-        <EntityType Name="Game_Account_Information">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PlayerId" Type="Int32" />
-          <Property Name="time" Type="Time" Precision="7" />
-          <Property Name="Period" Type="Int32" />
-          <Property Name="GameId" Type="Int32" />
-          <NavigationProperty Name="Game" Relationship="Self.FK_Game_Account_Information_Game" FromRole="Game_Account_Information" ToRole="Game" />
-          <NavigationProperty Name="Player" Relationship="Self.FK_Game_Account_Information_Player" FromRole="Game_Account_Information" ToRole="Player" />
-        </EntityType>
-        <EntityType Name="Player">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Number" Type="Int32" />
-          <Property Name="ID_Team" Type="Int32" />
-          <NavigationProperty Name="Game_Account_Information" Relationship="Self.FK_Game_Account_Information_Player" FromRole="Player" ToRole="Game_Account_Information" />
-          <NavigationProperty Name="Team" Relationship="Self.FK_Player_Team" FromRole="Player" ToRole="Team" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Team">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CoachName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CoachSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Player" Relationship="Self.FK_Player_Team" FromRole="Team" ToRole="Player" />
-          <NavigationProperty Name="Game" Relationship="HockeyLeagueModel.FK_Game_Team" FromRole="Team" ToRole="Game" />
-          <NavigationProperty Name="Game1" Relationship="HockeyLeagueModel.FK_Game_Team1" FromRole="Team" ToRole="Game" />
-        </EntityType>
-        <Association Name="FK_Cause_cansel_game_Game">
-          <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
-          <End Role="Cause_cansel_game" Type="Self.Cause_cansel_game" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Game">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Cause_cansel_game">
-              <PropertyRef Name="GameId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Game_Account_Information_Game">
-          <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
-          <End Role="Game_Account_Information" Type="Self.Game_Account_Information" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Game">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Game_Account_Information">
-              <PropertyRef Name="GameId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Game_Account_Information_Player">
-          <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
-          <End Role="Game_Account_Information" Type="Self.Game_Account_Information" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Player">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Game_Account_Information">
-              <PropertyRef Name="PlayerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Player_Team">
-          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
-          <End Role="Player" Type="Self.Player" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Team">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Player">
-              <PropertyRef Name="ID_Team" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="HockeyLeagueEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cause_cansel_game" EntityType="Self.Cause_cansel_game" />
-          <EntitySet Name="Game" EntityType="Self.Game" />
-          <EntitySet Name="Game_Account_Information" EntityType="Self.Game_Account_Information" />
-          <EntitySet Name="Player" EntityType="Self.Player" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="Team" EntityType="Self.Team" />
-          <AssociationSet Name="FK_Cause_cansel_game_Game" Association="Self.FK_Cause_cansel_game_Game">
-            <End Role="Game" EntitySet="Game" />
-            <End Role="Cause_cansel_game" EntitySet="Cause_cansel_game" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Game_Account_Information_Game" Association="Self.FK_Game_Account_Information_Game">
-            <End Role="Game" EntitySet="Game" />
-            <End Role="Game_Account_Information" EntitySet="Game_Account_Information" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Game_Account_Information_Player" Association="Self.FK_Game_Account_Information_Player">
-            <End Role="Player" EntitySet="Player" />
-            <End Role="Game_Account_Information" EntitySet="Game_Account_Information" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Player_Team" Association="Self.FK_Player_Team">
-            <End Role="Team" EntitySet="Team" />
-            <End Role="Player" EntitySet="Player" />
-          </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -409,24 +263,42 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <AssociationSet Name="FK_Game_Team" Association="HockeyLeagueModel.FK_Game_Team">
-            <End Role="Team" EntitySet="Team" />
-            <End Role="Game" EntitySet="Game" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Game_Team1" Association="HockeyLeagueModel.FK_Game_Team1">
-            <End Role="Team" EntitySet="Team" />
-            <End Role="Game" EntitySet="Game" />
-          </AssociationSet>
-          <EntitySet Name="TeamTwo" EntityType="HockeyLeagueModel.TeamTwo" />
-          <AssociationSet Name="FK_Game_TeamTwo" Association="HockeyLeagueModel.FK_Game_TeamTwo">
-            <End Role="TeamTwo" EntitySet="TeamTwo" />
-            <End Role="Game" EntitySet="Game" />
-          </AssociationSet>
-          <EntitySet Name="Roles" EntityType="HockeyLeagueModel.Roles" />
           <FunctionImport Name="LogUser" ReturnType="Collection(HockeyLeagueModel.LogUser_Result)">
             <Parameter Name="login" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Cause_cansel_game" EntityType="HockeyLeagueModel.Cause_cansel_game" />
+          <EntitySet Name="Game" EntityType="HockeyLeagueModel.Game" />
+          <EntitySet Name="Game_Account_Information" EntityType="HockeyLeagueModel.Game_Account_Information" />
+          <EntitySet Name="Player" EntityType="HockeyLeagueModel.Player" />
+          <EntitySet Name="Roles" EntityType="HockeyLeagueModel.Roles" />
+          <EntitySet Name="sysdiagrams" EntityType="HockeyLeagueModel.sysdiagrams" />
+          <EntitySet Name="Team" EntityType="HockeyLeagueModel.Team" />
+          <EntitySet Name="TeamTwo" EntityType="HockeyLeagueModel.TeamTwo" />
+          <AssociationSet Name="FK_Cause_cansel_game_Game" Association="HockeyLeagueModel.FK_Cause_cansel_game_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="Cause_cansel_game" EntitySet="Cause_cansel_game" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Game_Account_Information_Game" Association="HockeyLeagueModel.FK_Game_Account_Information_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="Game_Account_Information" EntitySet="Game_Account_Information" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Game_Team2" Association="HockeyLeagueModel.FK_Game_Team2">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Game_TeamTwo" Association="HockeyLeagueModel.FK_Game_TeamTwo">
+            <End Role="TeamTwo" EntitySet="TeamTwo" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Game_Account_Information_Player" Association="HockeyLeagueModel.FK_Game_Account_Information_Player">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="Game_Account_Information" EntitySet="Game_Account_Information" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Player_Team" Association="HockeyLeagueModel.FK_Player_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Player" EntitySet="Player" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -439,30 +311,95 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <Association Name="FK_Game_Team">
-          <End Type="HockeyLeagueModel.Team" Role="Team" Multiplicity="0..1" />
-          <End Type="HockeyLeagueModel.Game" Role="Game" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Team">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Game">
-              <PropertyRef Name="HostTeam" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Game_Team1">
-          <End Type="HockeyLeagueModel.Team" Role="Team" Multiplicity="0..1" />
-          <End Type="HockeyLeagueModel.Game" Role="Game" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Team">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Game">
-              <PropertyRef Name="GuestTeam" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <ComplexType Name="LogUser_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="Login" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Roles" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Cause_cansel_game">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GameId" Type="Int32" />
+          <Property Name="Cause" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NewDataGame" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Game" Relationship="HockeyLeagueModel.FK_Cause_cansel_game_Game" FromRole="Cause_cansel_game" ToRole="Game" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HostTeam" Type="Int32" />
+          <Property Name="GuestTeam" Type="Int32" />
+          <Property Name="HostTeamScore" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="GuestTeamScore" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="GameData" Type="DateTime" Precision="3" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Match_status" Type="Boolean" />
+          <NavigationProperty Name="Cause_cansel_game" Relationship="HockeyLeagueModel.FK_Cause_cansel_game_Game" FromRole="Game" ToRole="Cause_cansel_game" />
+          <NavigationProperty Name="Game_Account_Information" Relationship="HockeyLeagueModel.FK_Game_Account_Information_Game" FromRole="Game" ToRole="Game_Account_Information" />
+          <NavigationProperty Name="Team" Relationship="HockeyLeagueModel.FK_Game_Team2" FromRole="Game" ToRole="Team" />
+          <NavigationProperty Name="TeamTwo" Relationship="HockeyLeagueModel.FK_Game_TeamTwo" FromRole="Game" ToRole="TeamTwo" />
+        </EntityType>
+        <EntityType Name="Game_Account_Information">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlayerId" Type="Int32" />
+          <Property Name="time" Type="Time" Precision="7" />
+          <Property Name="Period" Type="Int32" />
+          <Property Name="GameId" Type="Int32" />
+          <NavigationProperty Name="Game" Relationship="HockeyLeagueModel.FK_Game_Account_Information_Game" FromRole="Game_Account_Information" ToRole="Game" />
+          <NavigationProperty Name="Player" Relationship="HockeyLeagueModel.FK_Game_Account_Information_Player" FromRole="Game_Account_Information" ToRole="Player" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="ID_Team" Type="Int32" />
+          <NavigationProperty Name="Game_Account_Information" Relationship="HockeyLeagueModel.FK_Game_Account_Information_Player" FromRole="Player" ToRole="Game_Account_Information" />
+          <NavigationProperty Name="Team" Relationship="HockeyLeagueModel.FK_Player_Team" FromRole="Player" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Roles1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CoachName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CoachSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Game" Relationship="HockeyLeagueModel.FK_Game_Team2" FromRole="Team" ToRole="Game" />
+          <NavigationProperty Name="Player" Relationship="HockeyLeagueModel.FK_Player_Team" FromRole="Team" ToRole="Player" />
+        </EntityType>
         <EntityType Name="TeamTwo">
           <Key>
             <PropertyRef Name="id" />
@@ -474,6 +411,42 @@
           <Property Name="CoachSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Game" Relationship="HockeyLeagueModel.FK_Game_TeamTwo" FromRole="TeamTwo" ToRole="Game" />
         </EntityType>
+        <Association Name="FK_Cause_cansel_game_Game">
+          <End Type="HockeyLeagueModel.Game" Role="Game" Multiplicity="0..1" />
+          <End Type="HockeyLeagueModel.Cause_cansel_game" Role="Cause_cansel_game" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cause_cansel_game">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Game_Account_Information_Game">
+          <End Type="HockeyLeagueModel.Game" Role="Game" Multiplicity="0..1" />
+          <End Type="HockeyLeagueModel.Game_Account_Information" Role="Game_Account_Information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Game_Account_Information">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Game_Team2">
+          <End Type="HockeyLeagueModel.Team" Role="Team" Multiplicity="0..1" />
+          <End Type="HockeyLeagueModel.Game" Role="Game" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Game">
+              <PropertyRef Name="HostTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Game_TeamTwo">
           <End Type="HockeyLeagueModel.TeamTwo" Role="TeamTwo" Multiplicity="0..1" />
           <End Type="HockeyLeagueModel.Game" Role="Game" Multiplicity="*" />
@@ -486,96 +459,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Roles">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Roles1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <ComplexType Name="LogUser_Result">
-          <Property Type="Int32" Name="id" Nullable="false" />
-          <Property Type="String" Name="Login" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Roles" Nullable="true" MaxLength="50" />
-        </ComplexType>
+        <Association Name="FK_Game_Account_Information_Player">
+          <End Type="HockeyLeagueModel.Player" Role="Player" Multiplicity="0..1" />
+          <End Type="HockeyLeagueModel.Game_Account_Information" Role="Game_Account_Information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Game_Account_Information">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Player_Team">
+          <End Type="HockeyLeagueModel.Team" Role="Team" Multiplicity="0..1" />
+          <End Type="HockeyLeagueModel.Player" Role="Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="ID_Team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище HockeyLeagueModelContainer" CdmEntityContainer="HockeyLeagueEntities">
-          <EntitySetMapping Name="Cause_cansel_game">
-            <EntityTypeMapping TypeName="HockeyLeagueModel.Cause_cansel_game">
-              <MappingFragment StoreEntitySet="Cause_cansel_game">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-                <ScalarProperty Name="Cause" ColumnName="Cause" />
-                <ScalarProperty Name="NewDataGame" ColumnName="NewDataGame" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Game">
-            <EntityTypeMapping TypeName="HockeyLeagueModel.Game">
-              <MappingFragment StoreEntitySet="Game">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="HostTeam" ColumnName="HostTeam" />
-                <ScalarProperty Name="GuestTeam" ColumnName="GuestTeam" />
-                <ScalarProperty Name="HostTeamScore" ColumnName="HostTeamScore" />
-                <ScalarProperty Name="GuestTeamScore" ColumnName="GuestTeamScore" />
-                <ScalarProperty Name="GameData" ColumnName="GameData" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="Match_status" ColumnName="Match_status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Game_Account_Information">
-            <EntityTypeMapping TypeName="HockeyLeagueModel.Game_Account_Information">
-              <MappingFragment StoreEntitySet="Game_Account_Information">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
-                <ScalarProperty Name="time" ColumnName="time" />
-                <ScalarProperty Name="Period" ColumnName="Period" />
-                <ScalarProperty Name="GameId" ColumnName="GameId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Player">
-            <EntityTypeMapping TypeName="HockeyLeagueModel.Player">
-              <MappingFragment StoreEntitySet="Player">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="ID_Team" ColumnName="ID_Team" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="HockeyLeagueModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Team">
-            <EntityTypeMapping TypeName="HockeyLeagueModel.Team">
-              <MappingFragment StoreEntitySet="Team">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="CoachName" ColumnName="CoachName" />
-                <ScalarProperty Name="CoachSurname" ColumnName="CoachSurname" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище HockeyLeagueModel.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище HockeyLeagueModel.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище HockeyLeagueModel.sp_dropdiagram" />
@@ -600,13 +513,59 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище HockeyLeagueModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище HockeyLeagueModel.sp_upgraddiagrams" />
-          <EntitySetMapping Name="TeamTwo">
-            <EntityTypeMapping TypeName="HockeyLeagueModel.TeamTwo">
-              <MappingFragment StoreEntitySet="TeamTwo">
-                <ScalarProperty Name="CoachSurname" ColumnName="CoachSurname" />
-                <ScalarProperty Name="CoachName" ColumnName="CoachName" />
+          <FunctionImportMapping FunctionImportName="LogUser" FunctionName="Хранилище HockeyLeagueModel.LogUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HockeyLeagueModel.LogUser_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Roles" ColumnName="Roles" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Cause_cansel_game">
+            <EntityTypeMapping TypeName="HockeyLeagueModel.Cause_cansel_game">
+              <MappingFragment StoreEntitySet="Cause_cansel_game">
+                <ScalarProperty Name="NewDataGame" ColumnName="NewDataGame" />
+                <ScalarProperty Name="Cause" ColumnName="Cause" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Game">
+            <EntityTypeMapping TypeName="HockeyLeagueModel.Game">
+              <MappingFragment StoreEntitySet="Game">
+                <ScalarProperty Name="Match_status" ColumnName="Match_status" />
                 <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="GameData" ColumnName="GameData" />
+                <ScalarProperty Name="GuestTeamScore" ColumnName="GuestTeamScore" />
+                <ScalarProperty Name="HostTeamScore" ColumnName="HostTeamScore" />
+                <ScalarProperty Name="GuestTeam" ColumnName="GuestTeam" />
+                <ScalarProperty Name="HostTeam" ColumnName="HostTeam" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Game_Account_Information">
+            <EntityTypeMapping TypeName="HockeyLeagueModel.Game_Account_Information">
+              <MappingFragment StoreEntitySet="Game_Account_Information">
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Player">
+            <EntityTypeMapping TypeName="HockeyLeagueModel.Player">
+              <MappingFragment StoreEntitySet="Player">
+                <ScalarProperty Name="ID_Team" ColumnName="ID_Team" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -621,16 +580,39 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="LogUser" FunctionName="Хранилище HockeyLeagueModel.LogUser">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="HockeyLeagueModel.LogUser_Result">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="HockeyLeagueModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Team">
+            <EntityTypeMapping TypeName="HockeyLeagueModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="CoachSurname" ColumnName="CoachSurname" />
+                <ScalarProperty Name="CoachName" ColumnName="CoachName" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Roles" ColumnName="Roles" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeamTwo">
+            <EntityTypeMapping TypeName="HockeyLeagueModel.TeamTwo">
+              <MappingFragment StoreEntitySet="TeamTwo">
+                <ScalarProperty Name="CoachSurname" ColumnName="CoachSurname" />
+                <ScalarProperty Name="CoachName" ColumnName="CoachName" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
